@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PS Cyber Store</title>
-    <!-- Зареждане на мощни геймърски икони от FontAwesome -->
-    <link rel="stylesheet" href="https://cloudflare.com">
     <style>
         :root {
             --neon-blue: #00f0ff;
@@ -43,7 +41,6 @@
             margin-bottom: 30px;
         }
 
-        /* Модерна търсачка */
         .search-container {
             margin-bottom: 50px;
         }
@@ -76,7 +73,6 @@
             margin: 0 auto;
         }
 
-        /* Неонови геймърски картички */
         .game-card {
             background: var(--panel-bg);
             border: 1px solid #1a2240;
@@ -99,12 +95,14 @@
             background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple));
         }
 
-        /* Големи светещи гейм икони вместо картинки */
-        .game-icon-box {
-            font-size: 70px;
+        /* Готино неоново лого с букви */
+        .game-logo-text {
+            font-size: 45px;
+            font-weight: 900;
             margin: 20px 0;
             color: var(--neon-blue);
-            text-shadow: 0 0 20px rgba(0, 240, 255, 0.6);
+            text-shadow: 0 0 20px rgba(0, 240, 255, 0.8);
+            letter-spacing: 2px;
             transition: transform 0.3s ease;
         }
 
@@ -114,22 +112,24 @@
             box-shadow: 0 15px 40px rgba(0, 240, 255, 0.25);
         }
 
-        .game-card:hover .game-icon-box {
-            transform: scale(1.15) rotate(5deg);
+        .game-card:hover .game-logo-text {
+            transform: scale(1.15);
         }
 
-        /* Цветови вариации за различен вид */
-        .card-purple .game-icon-box { color: var(--neon-purple); text-shadow: 0 0 20px rgba(189, 0, 255, 0.6); }
+        .card-purple .game-logo-text { color: var(--neon-purple); text-shadow: 0 0 20px rgba(189, 0, 255, 0.8); }
         .card-purple:hover { border-color: var(--neon-purple); box-shadow: 0 15px 40px rgba(189, 0, 255, 0.25); }
 
-        .card-green .game-icon-box { color: var(--neon-green); text-shadow: 0 0 20px rgba(0, 255, 102, 0.6); }
+        .card-green .game-logo-text { color: var(--neon-green); text-shadow: 0 0 20px rgba(0, 255, 102, 0.8); }
         .card-green:hover { border-color: var(--neon-green); box-shadow: 0 15px 40px rgba(0, 255, 102, 0.25); }
 
         .game-title {
             font-size: 1.3rem;
             font-weight: 700;
             margin: 15px 0 5px 0;
-            letter-spacing: 0.5px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .price-tag {
@@ -180,10 +180,10 @@
         <input type="text" id="search" class="search-bar" onkeyup="filterGames()" placeholder="🔍 Търси игра по име...">
     </div>
 
-    <div class="container" id="games-grid">
+    <div class="container">
         <!-- 1 -->
         <div class="game-card">
-            <div class="game-icon-box"><i class="fa-solid i-glow fa-cubes"></i></div>
+            <div class="game-logo-text">MC</div>
             <div>
                 <div class="game-title">Minecraft</div>
                 <div class="price-tag" style="color: var(--neon-green);">14.99 €</div>
@@ -193,7 +193,7 @@
 
         <!-- 2 -->
         <div class="game-card card-purple">
-            <div class="game-icon-box"><i class="fa-solid fa-gavel"></i></div>
+            <div class="game-logo-text">GOW</div>
             <div>
                 <div class="game-title">God of War</div>
                 <div class="price-tag" style="color: var(--neon-purple);">39.99 €</div>
@@ -203,7 +203,7 @@
 
         <!-- 3 -->
         <div class="game-card card-green">
-            <div class="game-icon-box"><i class="fa-solid fa-spider"></i></div>
+            <div class="game-logo-text">SM2</div>
             <div>
                 <div class="game-title">Spider-Man 2</div>
                 <div class="price-tag" style="color: var(--neon-green);">49.99 €</div>
@@ -213,7 +213,7 @@
 
         <!-- 4 -->
         <div class="game-card">
-            <div class="game-icon-box"><i class="fa-solid fa-car"></i></div>
+            <div class="game-logo-text">GTA</div>
             <div>
                 <div class="game-title">GTA V Premium</div>
                 <div class="price-tag" style="color: var(--neon-blue);">19.99 €</div>
@@ -223,7 +223,7 @@
 
         <!-- 5 -->
         <div class="game-card card-purple">
-            <div class="game-icon-box"><i class="fa-solid fa-futbol"></i></div>
+            <div class="game-logo-text">FC25</div>
             <div>
                 <div class="game-title">EA Sports FC 25</div>
                 <div class="price-tag" style="color: var(--neon-purple);">45.00 €</div>
@@ -233,7 +233,7 @@
 
         <!-- 6 -->
         <div class="game-card card-green">
-            <div class="game-icon-box"><i class="fa-solid fa-ring"></i></div>
+            <div class="game-logo-text">ER</div>
             <div>
                 <div class="game-title">Elden Ring</div>
                 <div class="price-tag" style="color: var(--neon-green);">35.00 €</div>
@@ -243,7 +243,7 @@
 
         <!-- 7 -->
         <div class="game-card">
-            <div class="game-icon-box"><i class="fa-solid fa-gauge-high"></i></div>
+            <div class="game-logo-text">GT7</div>
             <div>
                 <div class="game-title">Gran Turismo 7</div>
                 <div class="price-tag" style="color: var(--neon-blue);">29.99 €</div>
@@ -253,7 +253,7 @@
 
         <!-- 8 -->
         <div class="game-card card-purple">
-            <div class="game-solid fa-regular fa-mask-hadestown"><i class="fa-solid fa-bow-arrow"></i><i class="fa-solid fa-mountain-sun"></i></div>
+            <div class="game-logo-text">HZ</div>
             <div>
                 <div class="game-title">Horizon Forbidden</div>
                 <div class="price-tag" style="color: var(--neon-purple);">24.99 €</div>
@@ -263,7 +263,7 @@
 
         <!-- 9 -->
         <div class="game-card card-green">
-            <div class="game-icon-box"><i class="fa-solid fa-gamepad"></i></div>
+            <div class="game-logo-text">ITT</div>
             <div>
                 <div class="game-title">It Takes Two</div>
                 <div class="price-tag" style="color: var(--neon-green);">15.00 €</div>
@@ -273,3 +273,18 @@
 
         <!-- 10 -->
         <div class="game-card">
+            <div class="game-logo-text">RDR2</div>
+            <div>
+                <div class="game-title">Red Dead 2</div>
+                <div class="price-tag" style="color: var(--neon-blue);">19.99 €</div>
+            </div>
+            <a href="https://instagram.com" target="_blank" class="action-btn">Купи сега</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 PS Cyber Store. Дизайнът е оптимизиран и напълно завършен.</p>
+    </footer>
+
+    <script>
+        function filterGames() {
