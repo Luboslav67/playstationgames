@@ -3,250 +3,273 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PS Games Store - Premium</title>
+    <title>PS Cyber Store</title>
+    <!-- Зареждане на мощни геймърски икони от FontAwesome -->
+    <link rel="stylesheet" href="https://cloudflare.com">
     <style>
         :root {
-            --ps-blue: #0070d1;
-            --ps-neon: #00f0ff;
-            --insta-pink: #e1306c;
-            --bg-dark: #070913;
-            --card-bg: #121626;
-        }
-        
-        body { 
-            font-family: 'Segoe UI', Roboto, sans-serif; 
-            background: var(--bg-dark); 
-            background-image: radial-gradient(circle at top, #1a2245 0%, var(--bg-dark) 70%);
-            color: white; 
-            text-align: center; 
-            padding: 40px 20px;
-            margin: 0;
+            --neon-blue: #00f0ff;
+            --neon-purple: #bd00ff;
+            --neon-green: #00ff66;
+            --bg-dark: #05070f;
+            --panel-bg: #0d1124;
         }
 
-        h1 { 
-            font-size: 3rem;
-            color: white;
-            text-shadow: 0 0 20px var(--ps-blue);
-            margin-bottom: 10px;
-            letter-spacing: 2px;
+        body {
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg-dark);
+            background-image: radial-gradient(circle at 50% 0%, #111936 0%, var(--bg-dark) 80%);
+            color: #fff;
+            margin: 0;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 5px;
+            background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 15px rgba(0, 240, 255, 0.3));
         }
 
         .subtitle {
-            color: #8a9fc4;
-            font-size: 1.2rem;
-            margin-bottom: 40px;
+            color: #6b7c9c;
+            font-size: 1.1rem;
+            margin-bottom: 30px;
         }
 
-        .container { 
-            display: flex; 
-            flex-wrap: wrap; 
-            justify-content: center; 
-            gap: 25px; 
+        /* Модерна търсачка */
+        .search-container {
+            margin-bottom: 50px;
+        }
+
+        .search-bar {
+            width: 100%;
+            max-width: 450px;
+            padding: 15px 25px;
+            font-size: 1rem;
+            background: rgba(13, 17, 36, 0.7);
+            border: 2px solid #1f2954;
+            border-radius: 50px;
+            color: white;
+            outline: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .search-bar:focus {
+            border-color: var(--neon-blue);
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.2);
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
             max-width: 1400px;
             margin: 0 auto;
         }
 
-        .game-card { 
-            border: 1px solid #1f2747; 
-            width: 240px; 
-            background: var(--card-bg); 
-            border-radius: 20px; 
+        /* Неонови геймърски картички */
+        .game-card {
+            background: var(--panel-bg);
+            border: 1px solid #1a2240;
+            border-radius: 24px;
+            width: 260px;
+            padding: 30px 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            position: relative;
             overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
             display: flex;
             flex-direction: column;
-        }
-
-        .game-card:hover { 
-            transform: translateY(-12px); 
-            border-color: var(--ps-neon); 
-            box-shadow: 0 15px 30px rgba(0, 112, 209, 0.4);
-        }
-
-        .img-container {
-            width: 100%;
-            height: 280px;
-            overflow: hidden;
-            background: #111;
-        }
-
-        .game-card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .game-card:hover img {
-            transform: scale(1.08);
-        }
-
-        .info {
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
             justify-content: space-between;
         }
 
-        .game-card h3 { 
-            margin: 0 0 10px 0;
-            font-size: 1.15rem; 
+        .game-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 5px;
+            background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple));
+        }
+
+        /* Големи светещи гейм икони вместо картинки */
+        .game-icon-box {
+            font-size: 70px;
+            margin: 20px 0;
+            color: var(--neon-blue);
+            text-shadow: 0 0 20px rgba(0, 240, 255, 0.6);
+            transition: transform 0.3s ease;
+        }
+
+        .game-card:hover {
+            transform: translateY(-10px) scale(1.03);
+            border-color: var(--neon-blue);
+            box-shadow: 0 15px 40px rgba(0, 240, 255, 0.25);
+        }
+
+        .game-card:hover .game-icon-box {
+            transform: scale(1.15) rotate(5deg);
+        }
+
+        /* Цветови вариации за различен вид */
+        .card-purple .game-icon-box { color: var(--neon-purple); text-shadow: 0 0 20px rgba(189, 0, 255, 0.6); }
+        .card-purple:hover { border-color: var(--neon-purple); box-shadow: 0 15px 40px rgba(189, 0, 255, 0.25); }
+
+        .card-green .game-icon-box { color: var(--neon-green); text-shadow: 0 0 20px rgba(0, 255, 102, 0.6); }
+        .card-green:hover { border-color: var(--neon-green); box-shadow: 0 15px 40px rgba(0, 255, 102, 0.25); }
+
+        .game-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin: 15px 0 5px 0;
+            letter-spacing: 0.5px;
+        }
+
+        .price-tag {
+            font-size: 26px;
+            font-weight: 800;
             color: #fff;
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            margin: 15px 0;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 5px 15px;
+            border-radius: 12px;
+            display: inline-block;
+            align-self: center;
         }
 
-        .price { 
-            color: #2ecc71; 
-            font-size: 24px; 
-            font-weight: 800; 
-            margin: 10px 0;
-            text-shadow: 0 0 10px rgba(46, 204, 113, 0.2);
-        }
-
-        .buy-btn { 
-            background: linear-gradient(135deg, var(--ps-blue), #004494); 
-            color: white; 
-            border: none; 
-            padding: 12px; 
-            cursor: pointer; 
-            border-radius: 12px; 
-            text-decoration: none; 
-            display: block; 
-            font-weight: bold; 
-            font-size: 1rem;
+        .action-btn {
+            background: linear-gradient(135deg, #0056b3, #0070d1);
+            color: white;
+            text-decoration: none;
+            padding: 14px;
+            border-radius: 16px;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.95rem;
             letter-spacing: 1px;
-            transition: all 0.3s ease; 
-            box-shadow: 0 4px 15px rgba(0, 112, 209, 0.3);
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 112, 209, 0.3);
         }
 
-        .buy-btn:hover { 
-            background: linear-gradient(135deg, var(--insta-pink), #b01e51); 
-            box-shadow: 0 4px 20px rgba(225, 48, 108, 0.5);
-            transform: scale(1.02);
+        .action-btn:hover {
+            background: linear-gradient(135deg, #e1306c, #b01e51);
+            box-shadow: 0 5px 25px rgba(225, 48, 108, 0.5);
+            transform: translateY(-2px);
         }
 
         footer {
-            margin-top: 80px;
-            color: #4e5d78;
+            margin-top: 100px;
+            color: #3d4966;
             font-size: 0.9rem;
         }
     </style>
 </head>
 <body>
 
-    <h1>🎮 PS PREMIUM STORE</h1>
-    <div class="subtitle">Избери игра и натисни "КУПИ", за да направиш поръчка в Instagram!</div>
+    <h1>⚡ PS CYBER STORE</h1>
+    <div class="subtitle">Поръчай любимата си игра моментално на ЛС в Instagram!</div>
 
-    <div class="container">
+    <div class="search-container">
+        <input type="text" id="search" class="search-bar" onkeyup="filterGames()" placeholder="🔍 Търси игра по име...">
+    </div>
+
+    <div class="container" id="games-grid">
         <!-- 1 -->
         <div class="game-card">
-            <div class="img-container"><img src="https://unsplash.com" alt="Minecraft"></div>
-            <div class="info">
-                <h3>Minecraft</h3>
-                <div class="price">14.99 €</div>
-                <a href="https://instagram.com" target="_blank" class="buy-btn">КУПИ</a>
+            <div class="game-icon-box"><i class="fa-solid i-glow fa-cubes"></i></div>
+            <div>
+                <div class="game-title">Minecraft</div>
+                <div class="price-tag" style="color: var(--neon-green);">14.99 €</div>
             </div>
+            <a href="https://instagram.com" target="_blank" class="action-btn">Купи сега</a>
         </div>
 
         <!-- 2 -->
-        <div class="game-card">
-            <div class="img-container"><img src="https://unsplash.com" alt="God of War"></div>
-            <div class="info">
-                <h3>God of War Ragnarök</h3>
-                <div class="price">39.99 €</div>
-                <a href="https://instagram.com" target="_blank" class="buy-btn">КУПИ</a>
+        <div class="game-card card-purple">
+            <div class="game-icon-box"><i class="fa-solid fa-gavel"></i></div>
+            <div>
+                <div class="game-title">God of War</div>
+                <div class="price-tag" style="color: var(--neon-purple);">39.99 €</div>
             </div>
+            <a href="https://instagram.com" target="_blank" class="action-btn">Купи сега</a>
         </div>
 
         <!-- 3 -->
-        <div class="game-card">
-            <div class="img-container"><img src="https://unsplash.com" alt="Spider-Man 2"></div>
-            <div class="info">
-                <h3>Spider-Man 2</h3>
-                <div class="price">49.99 €</div>
-                <a href="https://instagram.com" target="_blank" class="buy-btn">КУПИ</a>
+        <div class="game-card card-green">
+            <div class="game-icon-box"><i class="fa-solid fa-spider"></i></div>
+            <div>
+                <div class="game-title">Spider-Man 2</div>
+                <div class="price-tag" style="color: var(--neon-green);">49.99 €</div>
             </div>
+            <a href="https://instagram.com" target="_blank" class="action-btn">Купи сега</a>
         </div>
 
         <!-- 4 -->
         <div class="game-card">
-            <div class="img-container"><img src="https://unsplash.com" alt="GTA V"></div>
-            <div class="info">
-                <h3>GTA V Premium</h3>
-                <div class="price">19.99 €</div>
-                <a href="https://instagram.com" target="_blank" class="buy-btn">КУПИ</a>
+            <div class="game-icon-box"><i class="fa-solid fa-car"></i></div>
+            <div>
+                <div class="game-title">GTA V Premium</div>
+                <div class="price-tag" style="color: var(--neon-blue);">19.99 €</div>
             </div>
+            <a href="https://instagram.com" target="_blank" class="action-btn">Купи сега</a>
         </div>
 
         <!-- 5 -->
-        <div class="game-card">
-            <div class="img-container"><img src="https://unsplash.com" alt="FC 25"></div>
-            <div class="info">
-                <h3>EA Sports FC 25</h3>
-                <div class="price">45.00 €</div>
-                <a href="https://instagram.com" target="_blank" class="buy-btn">КУПИ</a>
+        <div class="game-card card-purple">
+            <div class="game-icon-box"><i class="fa-solid fa-futbol"></i></div>
+            <div>
+                <div class="game-title">EA Sports FC 25</div>
+                <div class="price-tag" style="color: var(--neon-purple);">45.00 €</div>
             </div>
+            <a href="https://instagram.com" target="_blank" class="action-btn">Купи сега</a>
         </div>
 
         <!-- 6 -->
-        <div class="game-card">
-            <div class="img-container"><img src="https://unsplash.com" alt="Elden Ring"></div>
-            <div class="info">
-                <h3>Elden Ring</h3>
-                <div class="price">35.00 €</div>
-                <a href="https://instagram.com" target="_blank" class="buy-btn">КУПИ</a>
+        <div class="game-card card-green">
+            <div class="game-icon-box"><i class="fa-solid fa-ring"></i></div>
+            <div>
+                <div class="game-title">Elden Ring</div>
+                <div class="price-tag" style="color: var(--neon-green);">35.00 €</div>
             </div>
+            <a href="https://instagram.com" target="_blank" class="action-btn">Купи сега</a>
         </div>
 
         <!-- 7 -->
         <div class="game-card">
-            <div class="img-container"><img src="https://unsplash.com" alt="Gran Turismo 7"></div>
-            <div class="info">
-                <h3>Gran Turismo 7</h3>
-                <div class="price">29.99 €</div>
-                <a href="https://instagram.com" target="_blank" class="buy-btn">КУПИ</a>
+            <div class="game-icon-box"><i class="fa-solid fa-gauge-high"></i></div>
+            <div>
+                <div class="game-title">Gran Turismo 7</div>
+                <div class="price-tag" style="color: var(--neon-blue);">29.99 €</div>
             </div>
+            <a href="https://instagram.com" target="_blank" class="action-btn">Купи сега</a>
         </div>
 
         <!-- 8 -->
-        <div class="game-card">
-            <div class="img-container"><img src="https://unsplash.com" alt="Horizon"></div>
-            <div class="info">
-                <h3>Horizon Forbidden West</h3>
-                <div class="price">24.99 €</div>
-                <a href="https://instagram.com" target="_blank" class="buy-btn">КУПИ</a>
+        <div class="game-card card-purple">
+            <div class="game-solid fa-regular fa-mask-hadestown"><i class="fa-solid fa-bow-arrow"></i><i class="fa-solid fa-mountain-sun"></i></div>
+            <div>
+                <div class="game-title">Horizon Forbidden</div>
+                <div class="price-tag" style="color: var(--neon-purple);">24.99 €</div>
             </div>
+            <a href="https://instagram.com" target="_blank" class="action-btn">Купи сега</a>
         </div>
 
         <!-- 9 -->
-        <div class="game-card">
-            <div class="img-container"><img src="https://unsplash.com" alt="It Takes Two"></div>
-            <div class="info">
-                <h3>It Takes Two</h3>
-                <div class="price">15.00 €</div>
-                <a href="https://instagram.com" target="_blank" class="buy-btn">КУПИ</a>
+        <div class="game-card card-green">
+            <div class="game-icon-box"><i class="fa-solid fa-gamepad"></i></div>
+            <div>
+                <div class="game-title">It Takes Two</div>
+                <div class="price-tag" style="color: var(--neon-green);">15.00 €</div>
             </div>
+            <a href="https://instagram.com" target="_blank" class="action-btn">Купи сега</a>
         </div>
 
         <!-- 10 -->
         <div class="game-card">
-            <div class="img-container"><img src="https://unsplash.com" alt="RDR2"></div>
-            <div class="info">
-                <h3>Red Dead Redemption 2</h3>
-                <div class="price">19.99 €</div>
-                <a href="https://instagram.com" target="_blank" class="buy-btn">КУПИ</a>
-            </div>
-        </div>
-    </div>
-
-    <footer>
-        <p>© 2026 PS Premium Store. Всички цени са валидни при поръчка на ЛС.</p>
-    </footer>
-
-</body>
-</html>
